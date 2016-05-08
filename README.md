@@ -16,7 +16,7 @@ npm install --save redux-safe-reducers
  * Combines reducers
  *
  * @param {Object} reducers The reducers that you want to combine.
- * @param {Function} Error handling method.
+ * @param {Function} onError Error handling method.
  *   @param {Error} err Reducer's error.
  */
 combineSafeReducers(reducers, (err) => {
@@ -31,13 +31,13 @@ Instead of using redux's `combineReducers` method, to create your root reducer, 
 ```js
 import combineSafeReducers from 'redux-safe-reducers';
 
-function handler(err) {
+function onError(err) {
    // reducer's error caught
 }
 
 const rootReducer = combineSafeReducers({
   <...your reducers>
-}, handler);
+}, onError);
 ```
 
 ## License
