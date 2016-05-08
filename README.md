@@ -1,32 +1,42 @@
 Redux Safe Reducers
 =============
 
+## Install
+
 ```js
 npm install --save redux-safe-reducers
 ```
 
+## API
+
+`redux-safe-reducers` exposes a function that acts as a wrapper to redux's [`combineReducers`](http://redux.js.org/docs/api/combineReducers.html) method and catches errors that may occur inside reducer's scope.
+
 ```js
-import combineSafeReducers from 'redux-safe-reducers'
+/**
+ * Combines reducers
+ *
+ * @param {Object} reducers The reducers that you want to combine.
+ * @param {Function} Error handling method.
+ *   @param {Error} err Reducer's error.
+ */
+combineSafeReducers(reducers, (err) => {
+  // error handler
+})
 ```
 
-## Why Do I Need This?
+## Usage
 
-redux-safe-reducers gives you the ability to catch errors that occur inside your reducers.
-
-
-## Installation
-
-To enable safe reducers instead of using `combineReducers` you just need to import `combineSafeReducers` and use it. Example:
+Instead of using redux's `combineReducers` method, to create your root reducer, use `combineSafeReducers`, the exposed function of `redux-safe-reducers`. You also need to provide the error handling function.
 
 ```js
-import combineSafeReducers from 'redux';
+import combineSafeReducers from 'redux-safe-reducers';
 
 function handler(err) {
-   // reducer error caught
+   // reducer's error caught
 }
 
 const rootReducer = combineSafeReducers({
-  <your other reducers>
+  <...your reducers>
 }, handler);
 ```
 
