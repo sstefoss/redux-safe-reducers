@@ -26,7 +26,7 @@ combineSafeReducers(reducers, (err) => {
 
 ## Usage
 
-Instead of using redux's `combineReducers` method, to create your root reducer, use `combineSafeReducers`, the exposed function of `redux-safe-reducers`. You also need to provide the error handling function.
+Instead of using `combineReducers`, to create your root reducer, use `combineSafeReducers` and pass an error handling method.
 
 ```js
 import combineSafeReducers from 'redux-safe-reducers';
